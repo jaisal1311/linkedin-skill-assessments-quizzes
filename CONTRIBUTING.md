@@ -1,16 +1,6 @@
-# Introduction
-
-## Write something nice here
-
-> First of all, thank you for considering contributing to this repository. People like you help others to reach their needs.
-
 ## When I want to create PR request
 
 - Any changes or new questions even without an answer can be a great help! Please do not hesitate to create any new PR, as we do not have a strict requirements for that matter.
-
-## If you have troubles with creating Pull Request
-
-- read discussion here [/pull/151](https://github.com/Ebazhanov/in-quiz-questions/pull/151)
 
 ## If I found something weird or incorrect, what should I do?
 
@@ -20,6 +10,6 @@
 
 - after your PR is merged, you will be automatically become a contributor and will be appeared in the Readme.md as the contributor.
 
-## Sponsor this project
+## PLEASE
 
-I put a lot of efforts and time into making this repo. If my answers helped you in anyway, please consider treating me with a cup of hot coffee (fine the link under 'Sponsor' section)
+add explanation (`or reference link`) to your answers. That will help anyone to better learn concepts they might not have a great understanding about.

@@ -740,7 +740,7 @@ p:first-child {
 - [ ] under the HTML view on the left
 - [ ] in the middle panel
 
-#### Q60. While HTML controls document structure, CSS controls **\_**.
+#### Q60. While HTML controls document structure, CSS controls `___`.
 
 - [ ] semantic meaning
 - [ ] content meaning
@@ -858,7 +858,7 @@ section {
 - [ ] `override`
 - [x] `!important`
 
-#### Q69. You can use the **\_** pseudo-class to set a different color on a link if it was clicked on.
+#### Q69. You can use the `___` pseudo-class to set a different color on a link if it was clicked on.
 
 - [x] `a:visited`
 - [ ] `a:hover`
@@ -879,14 +879,14 @@ section {
 - [x] `.header.clear {}`
 - [ ] `.header clear {}`
 
-#### Q72. A universal selector is specified using a(n) **\_**.
+#### Q72. A universal selector is specified using a(n) `___`.
 
 - [ ] "h1" string
 - [ ] "a" character
 - [ ] "p" character
 - [x] "\*" character
 
-#### Q73. In the following CSS code, `'h1'` is the **\_**, while `'color'` is the **\_**.
+#### Q73. In the following CSS code, `'h1'` is the `___`, while `'color'` is the `___`.
 
 ```css
 h1 {
@@ -955,7 +955,7 @@ body {font-size: 2rem;}
 
 - [ ] The .rem will be equivalent to 25px; the .em value will be 20px.
 - [ ] The .rem will be equivalent to 15px; the .em value will be 20px.
-- [ ] The .rem will be equivalent to 15px; the .em value will be 40px.
+- [x] The .rem will be equivalent to 15px; the .em value will be 40px.
 - [ ] The .rem will be equivalent to 20px; the .em value will be 40px.
 
 #### Q80. In this example, according to cascading and specificity rules, what color will the link be?
@@ -985,3 +985,189 @@ a {color: red;}
 - [ ] `text-transform`
 - [ ] `font-variant`
 - [x] `letter-spacing`
+
+#### Q82. What is the correct syntax for changing the curse from an arrow to a pointing hand when it interacts with a named element?
+
+- [x] `.element {cursor: pointer;}`
+- [ ] `.element {cursor: hand;}`
+- [ ] `.element {cursor: move-hand;}`
+- [ ] `.element {cursor: pointer-hand;}`
+
+#### Q83. What is the effect of this style?
+
+```html
+background-position: 10% 50%;
+```
+
+- [x] The background image is placed 10% from the left and 50% from the top of its container
+- [ ] The background image is placed 10% from the bottom and 50% from the left of its container
+- [ ] The background image is placed 10% from the right and 50% from the bottom of its container
+- [ ] The background image is placed 10% from the top and 50% from the left of its container
+
+#### Q84. How will the grid items display?
+
+```html
+grid-template-columns: 2fr 1fr;
+```
+
+- [ ] The first column is twice the height of the second column and will be as wide as the content
+- [ ] The first column is half the size of the container and the second column will absorb the remaining space
+- [x] The first column is twice as wide as the second column and will fit proportionally within the grid container
+- [ ] The first column is twice the width and height of the second column, and will fit proportionally within the grid container
+
+#### Q85. Which style rule would make the image 50% smaller during a hover?
+
+```html
+<img id="photo" alt="" src="..." />
+```
+
+- [ ] img#photo:hover {scale: 0.5;}
+- [x] img#photo:hover {transform: scale(0.5);}
+- [ ] img#photo {hover-scale: 0.5;}
+- [ ] img#photo:hover {size: smaller;}
+
+#### Q86. Which CSS properties can you use to create a rounded corner on just the top-left and top-right corners of an element?
+
+```css
+A. border-radius: 10px 10px 0 0;
+B. border-top-left-radius: 10px; and border-top-right-radius: 10px;
+C. border-radius: 10px 0;
+D. border-top-radius: 10px;
+```
+
+- [ ] A and C
+- [ ] C and D
+- [ ] B and C
+- [x] A and B
+
+#### Q87. Review the HTML example below. Then choose the list of selectors that select the \<p>, from lowest to highest specificity.
+
+```html
+<section>
+  <p class="example">...</p>
+</section>
+```
+
+- [ ]
+
+```css
+1. section \* {
+  ...;
+}
+2. [class*='example'] {
+  ...;
+}
+3. p.example {
+  ...;
+}
+4. section p {
+  ...;
+}
+```
+
+- [ ]
+
+```css
+1. p {
+  ...;
+}
+2. p.example {
+  ...;
+}
+3. section p {
+  ...;
+}
+4. [class*='example'] {
+  ...;
+}
+```
+
+- [ ]
+
+```css
+1. p.example {
+  ...;
+}
+2. section p {
+  ...;
+}
+3. [class*='example'] {
+  ...;
+}
+4. section \* {
+  ...;
+}
+```
+
+- [x]
+
+```css
+1. p {
+  ...;
+}
+2. section p {
+  ...;
+}
+3. [class*='example'] {
+  ...;
+}
+4. p.example {
+  ...;
+}
+```
+
+#### Q88. Which property is used to create a drop shadow effect on an HTML element?
+
+- [ ] element-shadow
+- [ ] outer-shadow
+- [ ] dropbox-shadow
+- [x] box-shadow
+
+#### Q89. What is the correct selector for targeting all text inputs that are not disabled?
+
+- [x] `input[type="text"]:not([disabled]) {...}`
+- [ ] `input[type="text"]:not("disabled") {...}`
+- [ ] `input[type*="text"]:not([disabled="disabled"]) {...}`
+- [ ] `input[type="text"]:not([type="disabled"]) {...}`
+
+**Explanation:**`input[type="text"] selects all the input with type text, and :not([disabled]) selects all the elements not having the attribute "disabled". Combining both only selects all the input elements with type attribte as "text" and not having "disabled" attribute.`
+[Reference link attribute-selector](https://www.w3schools.com/css/css_attribute_selectors.asp)
+[Reference link-:not()](https://developer.mozilla.org/en-US/docs/Web/CSS/:not)
+
+#### Q90. How can you create a semi-transparent background color?
+
+- [ ] background-color: hsl(0, 0, 0, 0.5);
+- [ ] background-color: rgbx(0, 0, 0, 0.5);
+- [x] background-color: rgba(0, 0, 0, 0.5);
+- [ ] background-color: rgba(0, 0, 0, 1);
+
+**Explanation:**`rgba is a funtion in css. rgba stands for red, green, blue and alpha. The value of alpha can be between 0 and 1 both inclusive with 0 being fully transparent and 1 being fully opaque.`
+[Reference link-rgba](https://www.w3schools.com/cssref/func_rgba.asp)
+
+#### Q91. Which property is used to create a drop shadow effect on an HTML element?
+
+```css
+grid-template-columns: 2fr 1ffr;
+```
+
+- [ ] The first column is half the size of the container and the second column will absorb the remaining space.
+- [ ] The first column is twice the width and height of the second column, and will fit proportionally within the grid container.
+- [ ] The first column is twice as wide as the second column and will fit proportionally within the grid container.
+- [ ] The first column is twice the height of the second column and will be as wide as the content.
+
+#### Q92. Suppose you want to have a list of items (.item) displayed in a row and in reverse order using flexbox. What is the error in the CSS below?
+
+```css
+.container {
+  display: flex;
+}
+.item {
+  border: 1px solid red;
+  flex-direction: row-reverse;
+}
+```
+
+- [ ] The value for flex-direction should be reverse-row.
+- [ ] The .container element should have a property of flex: display.
+- [x] The flex-direction property should be declared in the container.
+- [ ] The display value should be flex-inline to display the items in a row.

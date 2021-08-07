@@ -25,26 +25,26 @@
 
 - [ ] .
 
-```
+```cs
 var type = typeof(SomeType);
 var attribute = type.GetCustomAttribute<SomeAttribute>();
 ```
 
 - [ ] .
 
-```
+```cs
 var typeof(MyPresentationModel).Should().BeDecoratedWith<SomeAttribute>();
 ```
 
 - [ ] .
 
-```
+```cs
 Attribute.GetCustomAttribute, typeof(SubControllerActionToViewDataAttribute)
 ```
 
 - [x] .
 
-```
+```cs
 Attribute.GetCustomAttribute(typeof(ExampleController), typeof(SubControllerActionToViewDataAttribute))
 ```
 
@@ -64,27 +64,27 @@ Attribute.GetCustomAttribute(typeof(ExampleController), typeof(SubControllerActi
 
 #### Q7. What is this code an example of?
 
-    ```
-    private static object objA;
-        private static object objB;
+```cs
+private static object objA;
+    private static object objB;
 
-        private static void performTaskA()
+    private static void performTaskA()
+    {
+        lock (obj)
         {
-            lock (obj)
-            {
-                Thread.Sleep(1000);
-                lock (objA) { }
-            }
+            Thread.Sleep(1000);
+            lock (objA) { }
         }
+    }
 
-        private static void PerformTaskB()
+    private static void PerformTaskB()
+    {
+        lock (objA)
         {
-            lock (objA)
-            {
-                lock (objB) { }
-            }
+            lock (objB) { }
         }
-    ```
+    }
+```
 
 - [ ] a private class that uses multithreading
 - [ ] multithread coding
@@ -135,10 +135,10 @@ Attribute.GetCustomAttribute(typeof(ExampleController), typeof(SubControllerActi
 
 #### Q14. Which code snippet declares an anonymous type named userData?
 
-- [ ] var<<!---->T> userData = new <<!---->T> { name = "John", age = 32 };
-- [x] var userData = new { name = "John", age = 32 };
-- [ ] AType userData = new AType { name = "John", age = 32 };
-- [ ] Anonymous<T> userData = new Anonymous<T> { name = "John", age = 32 };
+- [ ] `var<<!---->T> userData = new <<!---->T> { name = "John", age = 32 };`
+- [x] `var userData = new { name = "John", age = 32 };`
+- [ ] `AType userData = new AType { name = "John", age = 32 };`
+- [ ] `Anonymous<T> userData = new Anonymous<T> { name = "John", age = 32 };`
 
 #### Q15. What will be returned when this method is executed?
 
@@ -151,18 +151,18 @@ Attribute.GetCustomAttribute(typeof(ExampleController), typeof(SubControllerActi
 
 #### Q16. In what order would the employee names in this example be printed to the console?
 
-    `
-        string[] employees = { "Joe", "Bob", "Carol", "Alice", "Will" };
+```cs
+string[] employees = { "Joe", "Bob", "Carol", "Alice", "Will" };
 
-        IEnumerable<string> employeeQuery = from person in employees
-                                             orderby person
-                                             select person;
+IEnumerable<string> employeeQuery = from person in employees
+                                    orderby person
+                                    select person;
 
-        foreach(string employee in employeeQuery)
-        {
-            Console.WriteLine(employee);
-        }
-    `
+foreach(string employee in employeeQuery)
+{
+    Console.WriteLine(employee);
+}
+```
 
 - [x] ascending
 - [ ] unordered
@@ -284,18 +284,20 @@ Attribute.GetCustomAttribute(typeof(ExampleController), typeof(SubControllerActi
 
 - [ ] d
 - [ ] \a
-- [ ] \b
-- [x] \w
+- [x] \b
+- [ ] \w
+
+[Reference](https://www.regular-expressions.info/wordboundaries.html)
 
 #### Q33. To conform to the following interface, which of its members need to be implemented?
 
-    ```
-    public interface INameble
-    {
-        string FirstName { get; set; }
-        string LastName { get; }
-    }
-    ```
+```cs
+public interface INameble
+{
+    string FirstName { get; set; }
+    string LastName { get; }
+}
+```
 
 - [x] Both the FirstName and LastName properties need to be implemented.
 - [ ] Neither, they are both optional.
@@ -332,7 +334,19 @@ Attribute.GetCustomAttribute(typeof(ExampleController), typeof(SubControllerActi
 
 #### Q38. What prints to the console when this code is executed?
 
-`public delegate void AuthCallback(bool validUser); public static AuthCallback loginCallback : Login; public static void Login() { Console.WriteLine("Valid user!"); } public static void Main(string[] args) { loginCallback(true); } `
+```cs
+public delegate void AuthCallback(bool validUser);
+public static AuthCallback loginCallback : Login;
+public static void Login()
+{
+    Console.WriteLine("Valid user!");
+}
+
+public static void Main(string[] args)
+{
+    loginCallback(true);
+}
+```
 
 - [ ] Login successful...
 - [ ] Valid user!
@@ -346,12 +360,12 @@ Attribute.GetCustomAttribute(typeof(ExampleController), typeof(SubControllerActi
 - [x] sealed class User
 - [ ] private sealed class User
 
-#### Q40. How would you write a delegeate named ResultCallback with an int parameter named responseCode?
+#### Q40. What is the correct syntax for a new generic list of strings named contacts? (similar to Q26)
 
-- [ ] `public delegate void ResultCallback<(int) responseCode>`;
-- [ ] `public delegate ResultCallback(int responseCode)`;
-- [x] `public delegate void ResultCallback(int responseCode)`;
-- [ ] `public void delegate ResultCallback<int responseCode>`;
+- [ ] var contacts = new List<string>();
+- [ ] var contacts = new List(string);
+- [ ] public List<string names> contacts = new List<string names>();
+- [ ] public List(string names) contacts = new List(string names);
 
 #### Q41. What is the difference between non-static and static classes?
 
@@ -374,10 +388,10 @@ Attribute.GetCustomAttribute(typeof(ExampleController), typeof(SubControllerActi
 
 `public class User {}`
 
-- [ ] mark the User class with the DeserializableAttribute
-- [ ] Declare it as public serializable class User {}
-- [x] Mark it with the SerializableAttribute // [Serializable] public class User {}
-- [ ] Declare it as private serializable class User{}
+- [ ] Mark the User class with the `DeserializableAttribute`.
+- [ ] Declare the class as `public serializable class User {}`.
+- [x] Mark the User class with the `SerializableAttribute` attribute.
+- [ ] Declare the class as `private serializable class User {}`.
 
 #### Q44. How would you write a delegate named ResultCallback with an int parameter named responseCode
 
@@ -413,3 +427,96 @@ Attribute.GetCustomAttribute(typeof(ExampleController), typeof(SubControllerActi
 - [ ] public static void IsvalidName(this string i, string value) {}
 - [ ] public string IsvalidName(this string i, string value) {}
 - [ ] public void IsvalidName(this string i, string value) {}
+
+#### Q49. How are C# classses limited?
+
+- [x] They do not support multiple inheritance.
+- [ ] They support multiple inheritance.
+- [ ] They can have only a set number of properties.
+- [ ] They can have only a set number of methods.
+
+#### Q50. What function do namespaces perform?
+
+- [ ] Namespaces calculate code coverage at runtime.
+- [ ] Namespaces compile application code together at compile time.
+- [ ] Namespaces group code together into a single repository.
+- [x] Namespaces separate code into groupings, control access, and void naming collisions.
+
+#### Q51. What is the correct way to write a public property with a private backing field?
+
+- [ ]
+
+```cs
+private int _password;
+pubic int Password = { get; set; }
+```
+
+- [ ]
+
+```cs
+private int _password;
+public int Password = _password;
+```
+
+- [ ]
+
+```cs
+private int _password;
+public int Password
+{
+  get -> _password;
+  set-> _password = value;
+}
+```
+
+- [x]
+
+```cs
+private int _password;
+public int Password
+{
+  get { return _password; }
+  set { _password = value; }
+}
+```
+
+#### Q52. What is a thread pool?
+
+- [ ] a collection of synchronous methods created during initialization that cannot be reused
+- [x] a collection of threads created during initialization that can be reused
+- [ ] a collection of threads only recognized at compile time that can be reused
+- [ ] a collection of asynchronous methods created at compile time that cannot be reused
+
+#### Q53. What is the most accurate description of a regular expression?
+
+- [ ] A regular expressions allows a variable to be passed by reference
+- [ ] A regular expression allows a class to conform to the Equatable protocol
+- [ ] A regular expression is a C# tool used to parse HTML
+- [x] A regular expression is a special text string for describing a search pattern
+
+#### Q54. When an object in C# is serialized, what is it converted to?
+
+- [ ] XML
+- [ ] JSON
+- [x] byte stream
+- [ ] value stream
+
+**Reference:** https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/serialization/
+
+#### Q55. What is a delegate
+
+- [ ] a variable that holds a reference to a value type and its content
+- [ ] a specific value type that can be used only in callback methods
+- [x] a type that holds a reference to a method with a particular parameter list and return type
+- [ ] a custom variable type that can be used in abstract classes
+
+**Reference:** https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/
+
+#### Q56. What are the four keywords associated with exception handling in C#?
+
+- [ ] try, catch, valid, invalid
+- [ ] try, valid, finally, throw
+- [x] try, catch, finally, throw
+- [ ] finally, throw, valid, invalid
+
+**Reference:** [Tutorial Point](https://www.tutorialspoint.com/csharp/csharp_exception_handling.htm#:~:text=Exceptions%20provide%20a%20way%20to,catch%2C%20finally%2C%20and%20throw.)
